@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  deploy:
+    docker:
+      - image: govau/cf-clip
+    steps:
+      - checkout
+      - run:
+          name: Deploying to cloud.gov.au
+          command: ./scripts/deploy.sh
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only:
+                - master
