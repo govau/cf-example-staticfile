@@ -6,4 +6,4 @@ applications:
   memory: 64M
   disk_quota: 256M
   instances: 2
-  path: www
+  path: web
