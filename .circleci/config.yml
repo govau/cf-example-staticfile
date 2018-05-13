@@ -2,7 +2,7 @@ version: 2
 jobs:
   deploy:
     docker:
-      - image: govau/cf-clip
+      - image: govau/cf-cli
     steps:
       - checkout
       - run:
