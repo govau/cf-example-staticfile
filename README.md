@@ -33,7 +33,7 @@ e.g. in this case, the static content is available at [cf-example-staticfile-fea
 
 CircleCI is following this project, and so will auto build it whenever there is a change.
 
-CircleCI will test each change regardless of the branch it is on. Whenever a change is made on the `master`, branch it will also deploy it to cloud.gov.au's Y cloud.
+CircleCI will test each change regardless of the branch it is on. Whenever a change is made on the `master` branch it will also deploy it to cloud.gov.au's Y cloud.
 
 The password of the user has been set in an environment variable in CircleCI (`CF_PASSWORD`).
 
