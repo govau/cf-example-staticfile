@@ -1,5 +1,11 @@
 version: 2
 jobs:
+  test:
+    docker:
+      - image: validator/validator
+    steps:
+      - checkout
+      - run: scripts/test.sh
   deploy:
     docker:
       - image: govau/cf-cli
@@ -10,8 +16,9 @@ jobs:
           command: ./scripts/deploy.sh
 workflows:
   version: 2
-  deploy:
+  test-and-deploy:
     jobs:
+      - test
       - deploy:
           filters:
             branches:
