@@ -7,4 +7,4 @@ set -e
 set -x
 
 # Run validator https://github.com/validator/validator
-java -jar vnu.jar $(dirname "$0")/../web
+java -jar /vnu.jar $(dirname "$0")/../web
