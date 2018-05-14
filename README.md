@@ -29,7 +29,7 @@ e.g. in this case, the static content is available at [cf-example-staticfile-fea
 
 ## Deploy from CircleCI
 
-[![CircleCI](https://circleci.com/gh/govau/cf-example-staticfile.svg?style=svg)](https://circleci.com/gh/govau/cf-example-staticfile)
+[![CircleCI](https://circleci.com/gh/govau/cf-example-staticfile/tree/master.svg?style=svg)](https://circleci.com/gh/govau/cf-example-staticfile/tree/master)
 
 CircleCI is following this project, and so will auto build it whenever there is a change.
 
