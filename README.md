@@ -29,17 +29,13 @@ e.g. in this case, the static content is available at [cf-example-staticfile-fea
 
 ## Deploy from CircleCI
 
-TODO add example for CircleCI
+[![CircleCI](https://circleci.com/gh/govau/cf-example-staticfile.svg?style=svg)](https://circleci.com/gh/govau/cf-example-staticfile)
 
-### Add these environment variables to CircleCI
+CircleCI is following this project, and so will auto build it whenever there is a change.
 
-```
-CF_API
-CF_ORG
-CF_SPACE
-CF_USERNAME
-CF_PASSWORD
-```
+CircleCI will test each change regardless of the branch it is on. Whenever a change is made on the `master`, branch it will also deploy it to cloud.gov.au's Y cloud.
+
+The password of the user has been set in an environment variable in CircleCI (`CF_PASSWORD`).
 
 ## Further reading
 
