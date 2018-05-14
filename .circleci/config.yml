@@ -16,8 +16,9 @@ jobs:
           command: ./scripts/deploy.sh
 workflows:
   version: 2
-  deploy:
+  test-and-deploy:
     jobs:
+      - test
       - deploy:
           filters:
             branches:
