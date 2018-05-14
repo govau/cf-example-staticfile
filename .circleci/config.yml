@@ -1,5 +1,11 @@
 version: 2
 jobs:
+  test:
+    docker:
+      - image: validator/validator
+    steps:
+      - checkout
+      - run: scripts/test.sh
   deploy:
     docker:
       - image: govau/cf-cli
