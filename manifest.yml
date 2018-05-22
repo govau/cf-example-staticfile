@@ -4,5 +4,4 @@ applications:
   buildpack: staticfile_buildpack
   memory: 64M
   disk_quota: 256M
-  instances: 2
   path: web
