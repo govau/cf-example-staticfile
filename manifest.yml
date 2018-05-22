@@ -1,7 +1,6 @@
 ---
 applications:
 - name: cf-example-staticfile
-  random-route: true
   buildpack: staticfile_buildpack
   memory: 64M
   disk_quota: 256M
