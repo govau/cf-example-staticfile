@@ -1,13 +1,15 @@
 # Cloud foundry example using the staticfile buildpack
 
-This repository contains a simple example using the staticfile buildpack.
-When you push this application, the static files in the `web` directory will be made available on the web.
+This repository contains an angularjs example using the staticfile buildpack.
+When you push this application, the built angular files will be made available on the web.
 
 ## Manually pushing from your computer
 
 1. Grab a copy of this repo locally: `git clone https://github.com/govau/cf-example-staticfile.git`
 
 1. Login to cloud foundry:`cf login  --sso -a https://api.system.y.cld.gov.au`
+
+1. Build the application: `cd hello-app && ng build`
 
 1. Push the application: `cf push`
 

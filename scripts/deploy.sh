@@ -17,7 +17,7 @@ cf target -s cf-example-staticfile
 # push our code to cloud foundry
 
 # with downtime
-cf push
+# cf push
 
 # using zero-downtime-push https://github.com/contraband/autopilot
-#cf zero-downtime-push cf-example-staticfile -f manifest.yml
+cf zero-downtime-push cf-example-staticfile -f manifest.yml

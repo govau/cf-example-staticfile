@@ -1,28 +1,49 @@
+
+# from https://github.com/angular/angular-cli/blob/master/docs/documentation/stories/continuous-integration.md#using-circle-ci
+
 version: 2
 jobs:
-  test:
+  build_test:
     docker:
-      - image: validator/validator
+      # specify the version you desire here
+      # see https://hub.docker.com/r/circleci/node/tags/
+      - image: circleci/node:10-browsers
+
     steps:
       - checkout
-      - run: scripts/test.sh
+      - restore_cache:
+          key: app-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - run: npm install
+      - save_cache:
+          key: app-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+             - "node_modules"
+      - run: npm run test -- --watch=false --progress=false --browsers=ChromeHeadlessCI
+      - run: npm run e2e -- --protractor-config=./e2e/protractor-ci.conf.js
+      - run: npm run build
+      - persist_to_workspace:
+          root: /home/circleci/project
+          paths:
+            - .
   deploy:
     docker:
       - image: govau/cf-cli
+    working_directory: /root
     steps:
-      - checkout
+      - attach_workspace:
+          at: /root
       - run:
           name: Deploying to cloud.gov.au
-          command: ./scripts/deploy.sh
+          command: /root/scripts/deploy.sh
 workflows:
   version: 2
-  test-and-deploy:
+  build-test-deploy:
     jobs:
-      - test
+      - build_test
       - deploy:
           requires:
-            - test
-          filters:
-            branches:
-              only:
-                - master
+            - build_test
+          # filters:
+          #   branches:
+          #     only:
+          #       - master
